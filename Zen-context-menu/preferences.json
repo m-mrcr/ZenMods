@@ -190,5 +190,175 @@
         "property": "uc.hidecontext.navigation",
         "label": "🌐 Hide 'Back', 'Forward', 'Reload' & 'Bookmark Page' options",
         "type": "checkbox"
+    },
+    {
+        "property": "uc.hidecontext.previewlink",
+        "label": "🔗 Hide 'Preview Link'",
+        "type": "checkbox"
+    },
+    {
+        "property": "uc.hidecontext.splitview",
+        "label": "🔗 📑 Hide 'Open Link/Tab in Split View' & other split view options",
+        "type": "checkbox"
+    },
+    {
+        "property": "uc.hidecontext.copyemailphone",
+        "label": "📧 Hide 'Copy Email Address' & 'Copy Phone Number'",
+        "type": "checkbox"
+    },
+    {
+        "property": "uc.hidecontext.visualsearch",
+        "label": "🖼️ Hide 'Visual Search' for images",
+        "type": "checkbox"
+    },
+    {
+        "property": "uc.hidecontext.addengine",
+        "label": "🔍 Hide 'Add Search Engine'",
+        "type": "checkbox"
+    },
+    {
+        "property": "uc.hidecontext.highlight",
+        "label": "🖍️ Hide 'Copy Link to Highlight' & 'Remove Highlight' options",
+        "type": "checkbox"
+    },
+    {
+        "property": "uc.hidecontext.notes",
+        "label": "📝 📑 Hide 'Add Note' & 'Edit Note' tab options",
+        "type": "checkbox"
+    },
+    {
+        "property": "uc.hidecontext.movetogroup",
+        "label": "📑 Hide 'Move Tab to Group' options",
+        "type": "checkbox"
+    },
+    {
+        "property": "uc.hidecontext.movetowindow",
+        "label": "📑 Hide 'Move Tab to New Window'",
+        "type": "checkbox"
+    },
+    {
+        "property": "uc.order.enable",
+        "label": "↕️ Enable custom menu ordering (set numbers below — lower = higher up, blank/0 = leave in place). Overrides default tab reordering.",
+        "type": "checkbox"
+    },
+    {
+        "property": "uc.order.tab.newtab",
+        "label": "↕️ 📑 [Tab] 'New Tab' — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.tab.reload",
+        "label": "↕️ 📑 [Tab] 'Reload Tab' — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.tab.mute",
+        "label": "↕️ 📑 [Tab] 'Mute/Play Tab' — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.tab.pin",
+        "label": "↕️ 📑 [Tab] 'Pin Tab / Add to Essentials' — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.tab.duplicate",
+        "label": "↕️ 📑 [Tab] 'Duplicate Tab' — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.tab.unload",
+        "label": "↕️ 📑 [Tab] 'Unload Tab' — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.tab.bookmark",
+        "label": "↕️ 📑 [Tab] 'Bookmark Tab' — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.tab.move",
+        "label": "↕️ 📑 [Tab] 'Move Tab / Group / Container' options — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.tab.split",
+        "label": "↕️ 📑 [Tab] 'Split View' options — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.tab.close",
+        "label": "↕️ 📑 [Tab] 'Close Tab / Undo Close' options — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.page.nav",
+        "label": "↕️ 🌐 [Page] 'Back / Forward / Reload / Bookmark' — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.page.openlink",
+        "label": "↕️ 🌐 [Page] 'Open Link' options — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.page.copylink",
+        "label": "↕️ 🌐 [Page] 'Copy Link / Email / Highlight' options — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.page.save",
+        "label": "↕️ 🌐 [Page] 'Save / Bookmark Link & Page' options — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.page.send",
+        "label": "↕️ 🌐 [Page] 'Send Page/Link to Device' — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.page.image",
+        "label": "↕️ 🖼️ [Page] Image options — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.page.media",
+        "label": "↕️ 🎵 📺 [Page] Audio/Video options — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.page.edit",
+        "label": "↕️ ⌨️ [Page] Edit (Cut/Copy/Paste/Select All) — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.page.tools",
+        "label": "↕️ 🔤 [Page] 'Search / Translate / Print / Screenshot' — order",
+        "type": "string",
+        "placeholder": "0"
+    },
+    {
+        "property": "uc.order.page.devtools",
+        "label": "↕️ 🌐 [Page] 'View Source / Inspect / Frame' — order",
+        "type": "string",
+        "placeholder": "0"
     }
 ]

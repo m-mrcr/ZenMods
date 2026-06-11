@@ -1,4 +1,6 @@
 /* Zen Context Menu v3.0 by KiKaraage */
+/* Fork maintenance 2026-06-09: verified against Zen 1.20.2b, fixed Back/Forward/Reload/Bookmark
+ * hiding (#context-navigation was flattened), and added toggles for newer menu options */
 
 /* Fix ergonomics for tab context menu by applying some reorderings 
  * plus hiding disabled options and some separators
@@ -229,9 +231,10 @@
     display: none !important;
   }
 }
-/* Hide "Ask AI chatbot" options */
+/* Hide "Ask AI chatbot" options (page & tab context menu) */
 @media -moz-pref("uc.hidecontext.askchatbot") {
-  #context-ask-chat {
+  #context-ask-chat,
+  #context_askChat {
     display: none !important;
   }
 }
@@ -350,9 +353,243 @@
   }
 }
 /* Hide top buttons (Back, Forward, Reload, Bookmark Page) on page context menu */
+/* Zen 1.20+ flattened #context-navigation into individual items */
 @media -moz-pref("uc.hidecontext.navigation") {
-  #context-navigation, #context-sep-navigation {
+  #context-navigation,
+  #context-back,
+  #context-forward,
+  #context-reload,
+  #context-stop,
+  #context-bookmarkpage,
+  #context-sep-navigation {
     display: none !important;
+  }
+}
+
+/* Hide "Preview Link" */
+@media -moz-pref("uc.hidecontext.previewlink") {
+  #context-previewlink {
+    display: none !important;
+  }
+}
+/* Hide "Open Link/Tab in Split View" and other split view options */
+@media -moz-pref("uc.hidecontext.splitview") {
+  #context-openlinkinsplitview,
+  #context_moveTabToSplitView,
+  #context_moveSplitViewToNewGroup,
+  #context_separateSplitView,
+  #context_reverseSplitView,
+  #context_ungroupSplitView {
+    display: none !important;
+  }
+}
+/* Hide "Copy Email Address" and "Copy Phone Number" */
+@media -moz-pref("uc.hidecontext.copyemailphone") {
+  #context-copyemail,
+  #context-copyphone {
+    display: none !important;
+  }
+}
+/* Hide "Visual Search" for images */
+@media -moz-pref("uc.hidecontext.visualsearch") {
+  #context-visual-search {
+    display: none !important;
+  }
+}
+/* Hide "Add Search Engine" */
+@media -moz-pref("uc.hidecontext.addengine") {
+  #context-add-engine {
+    display: none !important;
+  }
+}
+/* Hide "Copy Link to Highlight", "Copy Clean Link to Highlight" & "Remove Highlight" */
+@media -moz-pref("uc.hidecontext.highlight") {
+  #context-copy-link-to-highlight,
+  #context-copy-clean-link-to-highlight,
+  #context-remove-highlight,
+  #context-sep-highlights {
+    display: none !important;
+  }
+}
+/* Hide tab "Add Note" / "Edit Note" options */
+@media -moz-pref("uc.hidecontext.notes") {
+  #context_addNote,
+  #context_editNote {
+    display: none !important;
+  }
+}
+/* Hide "Move Tab to Group" options */
+@media -moz-pref("uc.hidecontext.movetogroup") {
+  #context_moveTabToNewGroup,
+  #context_moveTabToGroup,
+  #context_ungroupTab {
+    display: none !important;
+  }
+}
+/* Hide "Move Tab to New Window" */
+@media -moz-pref("uc.hidecontext.movetowindow") {
+  #context_openTabInWindow {
+    display: none !important;
+  }
+}
+
+
+/* ============================================================================
+ * CUSTOM MENU ORDERING
+ * Turn on "Enable custom menu ordering" then type a number for each group in
+ * settings. Lower number = higher up, higher number = lower down, blank/0 =
+ * leave in place. Negative numbers are allowed (e.g. -5 floats to the top).
+ * Tip: also enable "Hide all separators" for the cleanest looking result,
+ * since separators keep their original position while items move around them.
+ * Overrides the default "Reorder options for tab context menu" ergonomics.
+ * ========================================================================== */
+@media -moz-pref("uc.order.enable") {
+  /* ---------- Tab context menu ---------- */
+  #tabContextMenu {
+    #context_openANewTab {
+      order: var(--uc-order-tab-newtab, 0) !important;
+    }
+    #context_reloadTab,
+    #context_reloadSelectedTabs {
+      order: var(--uc-order-tab-reload, 0) !important;
+    }
+    #context_toggleMuteTab,
+    #context_toggleMuteSelectedTabs,
+    #context_playTab,
+    #context_playSelectedTabs {
+      order: var(--uc-order-tab-mute, 0) !important;
+    }
+    #context_pinTab,
+    #context_unpinTab,
+    #context_pinSelectedTabs,
+    #context_unpinSelectedTabs,
+    #context_zen-add-essential,
+    #context_zen-remove-essential {
+      order: var(--uc-order-tab-pin, 0) !important;
+    }
+    #context_duplicateTab,
+    #context_duplicateTabs {
+      order: var(--uc-order-tab-duplicate, 0) !important;
+    }
+    #context_unloadTab {
+      order: var(--uc-order-tab-unload, 0) !important;
+    }
+    #context_bookmarkTab,
+    #context_bookmarkSelectedTabs {
+      order: var(--uc-order-tab-bookmark, 0) !important;
+    }
+    #context_moveTabOptions,
+    #context_moveTabToGroup,
+    #context_moveTabToNewGroup,
+    #context_ungroupTab,
+    #context_openTabInWindow,
+    #context_reopenInContainer {
+      order: var(--uc-order-tab-move, 0) !important;
+    }
+    #context_moveTabToSplitView,
+    #context_moveSplitViewToNewGroup,
+    #context_separateSplitView,
+    #context_reverseSplitView,
+    #context_ungroupSplitView {
+      order: var(--uc-order-tab-split, 0) !important;
+    }
+    #context_closeTab,
+    #context_closeDuplicateTabs,
+    #context_closeTabOptions,
+    #context_closeOtherTabs,
+    #context_closeTabsToTheStart,
+    #context_closeTabsToTheEnd,
+    #context_undoCloseTab {
+      order: var(--uc-order-tab-close, 0) !important;
+    }
+  }
+
+  /* ---------- Page (content) context menu ---------- */
+  #contentAreaContextMenu {
+    #context-back,
+    #context-forward,
+    #context-reload,
+    #context-stop,
+    #context-bookmarkpage,
+    #context-sep-navigation {
+      order: var(--uc-order-page-nav, 0) !important;
+    }
+    #context-openlinkincurrent,
+    #context-openlinkintab,
+    #context-openlinkinsplitview,
+    #context-openlinkincontainertab,
+    #context-openlinkinusercontext-menu,
+    #context-openlink,
+    #context-openlinkprivate,
+    #context-previewlink {
+      order: var(--uc-order-page-openlink, 0) !important;
+    }
+    #context-copylink,
+    #context-stripOnShareLink,
+    #context-copyemail,
+    #context-copyphone,
+    #context-copy-link-to-highlight,
+    #context-copy-clean-link-to-highlight {
+      order: var(--uc-order-page-copylink, 0) !important;
+    }
+    #context-savelink,
+    #context-savepage,
+    #context-bookmarklink {
+      order: var(--uc-order-page-save, 0) !important;
+    }
+    #context-sendpagetodevice,
+    #context-sendlinktodevice {
+      order: var(--uc-order-page-send, 0) !important;
+    }
+    #context-viewimage,
+    #context-saveimage,
+    #context-copyimage,
+    #context-copyimage-contents,
+    #context-sendimage,
+    #context-setDesktopBackground,
+    #context-viewimageinfo,
+    #context-visual-search {
+      order: var(--uc-order-page-image, 0) !important;
+    }
+    #context-media-play,
+    #context-media-pause,
+    #context-media-mute,
+    #context-media-unmute,
+    #context-media-loop,
+    #context-media-playbackrate,
+    #context-video-pictureinpicture,
+    #context-video-fullscreen,
+    #context-viewvideo,
+    #context-savevideo,
+    #context-saveaudio {
+      order: var(--uc-order-page-media, 0) !important;
+    }
+    #context-undo,
+    #context-redo,
+    #context-cut,
+    #context-copy,
+    #context-paste,
+    #context-paste-no-formatting,
+    #context-delete,
+    #context-selectall {
+      order: var(--uc-order-page-edit, 0) !important;
+    }
+    #context-searchselect,
+    #context-searchselect-private,
+    #context-translate-selection,
+    #context-ask-chat,
+    #context-add-engine,
+    #context-print-selection,
+    #context-take-screenshot {
+      order: var(--uc-order-page-tools, 0) !important;
+    }
+    #context-viewsource,
+    #context-viewpartialsource-selection,
+    #context-inspect,
+    #context-inspect-a11y,
+    #frame {
+      order: var(--uc-order-page-devtools, 0) !important;
+    }
   }
 }
 
@@ -460,7 +697,8 @@
   #context-zen-change-workspace-tab {
     --menu-image: url('chrome://browser/skin/zen-icons/move-tab.svg') !important;
   }
-  #context-zenSplitLink {
+  #context-openlinkinsplitview,
+  #context_moveTabToSplitView {
     --menu-image: url('chrome://browser/skin/zen-icons/split.svg') !important;
   }
   
@@ -785,6 +1023,31 @@
   .customize-context-reportExtension,
   .unified-extensions-context-menu-report-extension {
     --menu-image: url('chrome://browser/skin/zen-icons/report.svg');
+  }
+  #context-copyemail {
+    --menu-image: url('chrome://browser/skin/zen-icons/mail.svg');
+  }
+  #context-copyphone,
+  #context-copy-link-to-highlight,
+  #context-copy-clean-link-to-highlight {
+    --menu-image: url('chrome://browser/skin/zen-icons/link.svg');
+  }
+  #context-visual-search {
+    --menu-image: url('chrome://browser/skin/zen-icons/search-glass.svg');
+  }
+  #context-add-engine {
+    --menu-image: url('chrome://browser/skin/zen-icons/search-page.svg');
+  }
+  #context_addNote,
+  #context_editNote {
+    --menu-image: url('chrome://browser/skin/zen-icons/edit.svg');
+  }
+  #context_moveTabToNewGroup,
+  #context_ungroupTab {
+    --menu-image: url('chrome://browser/skin/zen-icons/move-tab.svg');
+  }
+  #context_openTabInWindow {
+    --menu-image: url('chrome://browser/skin/zen-icons/window.svg');
   }
   .wordmark::after {
     content: 'Plus' !important;
